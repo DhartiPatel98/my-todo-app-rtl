@@ -28,6 +28,7 @@ const AddInput: React.FC<AddToDo> = ({ setTodos, todos }) => {
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
         placeholder="Add a new task here..."
+        id="task-input"
       />
       <button className="add-btn" onClick={addTodo}>
         Add
