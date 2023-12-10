@@ -6,7 +6,7 @@ const TodoFooter: React.FC<IFooter> = ({ numberOfIncompleteTasks }) => {
   return (
     <div className="todo-footer">
       {numberOfIncompleteTasks}{" "}
-      <span>{numberOfIncompleteTasks === 1 ? "task" : "tasks"} left</span>
+      {numberOfIncompleteTasks === 1 ? "task" : "tasks"} left
     </div>
   );
 };
