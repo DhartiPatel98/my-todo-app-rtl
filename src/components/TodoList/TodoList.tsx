@@ -28,29 +28,34 @@ const TodoList: React.FC<ICommonToDoProps> = ({ todos, setTodos }) => {
   return (
     <div className="todolist-container">
       <div className="todos-container">
-        <div>
-          {todos.map((todo) => (
-            <div
-              className={`todo-item ${todo.completed && "todo-item-completed"}`}
-              key={todo.id}
-            >
-              <div>{todo.task}</div>
-              {todo.completed ? (
-                <RestoreIcon
-                  width={20}
-                  height={20}
-                  onClick={() => updateTask(todo.id)}
-                />
-              ) : (
-                <DeleteIcon
-                  width={20}
-                  height={20}
-                  onClick={() => updateTask(todo.id)}
-                />
-              )}
-            </div>
-          ))}
-        </div>
+        {todos.map((todo) => (
+          <div
+            className={`todo-item ${
+              todo.completed ? "todo-item-completed" : ""
+            }`}
+            key={todo.id}
+            aria-label={`todo-item-${todo.id}`}
+          >
+            <div>{todo.task}</div>
+            {todo.completed ? (
+              <RestoreIcon
+                width={20}
+                height={20}
+                onClick={() => updateTask(todo.id)}
+                aria-label={`restore-todo-${todo.id}`}
+                role="button"
+              />
+            ) : (
+              <DeleteIcon
+                width={20}
+                height={20}
+                onClick={() => updateTask(todo.id)}
+                aria-label={`delete-todo-${todo.id}`}
+                role="button"
+              />
+            )}
+          </div>
+        ))}
       </div>
       <div>
         <TodoFooter numberOfIncompleteTasks={calcNumberOfIncompletedTasks()} />

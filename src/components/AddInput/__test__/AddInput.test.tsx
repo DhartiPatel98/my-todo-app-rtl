@@ -3,7 +3,7 @@ import AddInput from "../AddInput";
 
 const mockedSetTodoFn = jest.fn();
 
-describe("Add TODO", () => {
+describe("Add Input", () => {
   // Test #1: should render input element - using placeholder
   test("should render input element", () => {
     render(<AddInput todos={[]} setTodos={mockedSetTodoFn} />);
