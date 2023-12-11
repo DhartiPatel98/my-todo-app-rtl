@@ -27,15 +27,31 @@ const TodoList: React.FC<ICommonToDoProps> = ({ todos, setTodos }) => {
 
   return (
     <div className="todolist-container">
-      <div className="todos-container">
+      <ul className="todos-container">
         {todos.map((todo) => (
-          <div
+          <li
             className={`todo-item ${
               todo.completed ? "todo-item-completed" : ""
             }`}
             key={todo.id}
+            id={todo.id}
           >
-            <div aria-label={todo.id}>{todo.task}</div>
+            <div>{todo.task}</div>
+            {/* {todo.completed ? (
+              <button
+                onClick={() => updateTask(todo.id)}
+                aria-label={`restore-todo-${todo.id}`}
+              >
+                <RestoreIcon width={20} height={20} />
+              </button>
+            ) : (
+              <button
+                onClick={() => updateTask(todo.id)}
+                aria-label={`delete-todo-${todo.id}`}
+              >
+                <DeleteIcon width={20} height={20} />
+              </button>
+            )} */}
             {todo.completed ? (
               <RestoreIcon
                 width={20}
@@ -53,9 +69,9 @@ const TodoList: React.FC<ICommonToDoProps> = ({ todos, setTodos }) => {
                 role="button"
               />
             )}
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
       <div>
         <TodoFooter numberOfIncompleteTasks={calcNumberOfIncompletedTasks()} />
       </div>

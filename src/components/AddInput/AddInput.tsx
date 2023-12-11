@@ -37,7 +37,12 @@ const AddInput: React.FC<AddToDo> = ({ setTodos, todos }) => {
           <input
             className="input"
             value={todo}
-            onChange={(e) => setTodo(e.target.value)}
+            onChange={(e) => {
+              setTodo(e.target.value);
+              if (!e.target.value) {
+                setError("");
+              }
+            }}
             placeholder="Add a new task here..."
             id="task-input"
           />
@@ -47,7 +52,7 @@ const AddInput: React.FC<AddToDo> = ({ setTodos, todos }) => {
         </button>
       </div>
       {error && (
-        <div className="error" aria-label="todo-error">
+        <div className="error" id="todo-error">
           {error}
         </div>
       )}
