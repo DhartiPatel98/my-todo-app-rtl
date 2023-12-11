@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Todo from "../Todo";
 
+// !TO-DO: Change id of TO-DO to delete & restore it
 function addToDo(todos: Array<string>) {
   const inputElement = screen.getByPlaceholderText(/Add a new task here.../i);
   const buttonElement = screen.getByRole("button", {
@@ -45,19 +46,19 @@ describe("Add TODO", () => {
   });
 
   // Test #4: ToDo should be in completed state when deleted
-  //   test("should be in complete state", () => {
-  //     render(<Todo />);
-  //     const task: Array<string> = ["Task 1"];
-  //     addToDo(task);
+  // test("should be in complete state", () => {
+  //   render(<Todo />);
+  //   const task: Array<string> = ["Task 1"];
+  //   addToDo(task);
 
-  //     const taskElement = screen.getByText(/todo-item-/i);
+  //   const taskElement = screen.getByText(/todo-item-/i);
 
-  //     const deleteButton = screen.getByRole("button", {
-  //       name: /delete-todo-/,
-  //     });
-
-  //     fireEvent.click(deleteButton);
-
-  //     expect(taskElement).toHaveClass("todo-item-completed");
+  //   const deleteButton = screen.getByRole("button", {
+  //     name: /delete-todo-/,
   //   });
+
+  //   fireEvent.click(deleteButton);
+
+  //   expect(taskElement).toHaveClass("todo-item-completed");
+  // });
 });

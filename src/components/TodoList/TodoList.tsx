@@ -34,9 +34,8 @@ const TodoList: React.FC<ICommonToDoProps> = ({ todos, setTodos }) => {
               todo.completed ? "todo-item-completed" : ""
             }`}
             key={todo.id}
-            aria-label={`todo-item-${todo.id}`}
           >
-            <div>{todo.task}</div>
+            <div aria-label={todo.id}>{todo.task}</div>
             {todo.completed ? (
               <RestoreIcon
                 width={20}
